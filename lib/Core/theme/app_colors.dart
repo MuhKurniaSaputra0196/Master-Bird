@@ -19,4 +19,10 @@ class AppColors {
   static const Color warning = Color(0xFFF5B041);
 
   static const Color error = Color(0xFFE74C3C);
+
+  static const Color forest = Color(0xff355E3B);
+  
+  static const Color card = Colors.white;
+  
+  static const Color textGrey = Color(0xff777777);
 }
