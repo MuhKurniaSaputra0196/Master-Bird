@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
-
-import 'core/theme/app_theme.dart';
-import 'features/home/pages/home_page.dart';
+// Pastikan path import ini sesuai dengan struktur folder kamu
+import 'features/onboarding/splash_page.dart'; 
 
 void main() {
-  runApp(const MasterBirdApp());
+  runApp(const MyApp());
 }
 
-class MasterBirdApp extends StatelessWidget {
-  const MasterBirdApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'MasterBird',
-      theme: AppTheme.lightTheme,
-      home: const HomePage(),
+      debugShowCheckedModeBanner: false, // Menghilangkan pita "DEBUG" di pojok kanan atas
+      theme: ThemeData(
+        fontFamily: 'PlusJakartaSans',
+        scaffoldBackgroundColor: Colors.white,
+      ),
+      // Di sinilah kuncinya, atur SplashPage sebagai halaman pertama
+      home: const SplashPage(), 
     );
   }
 }

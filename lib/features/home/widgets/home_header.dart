@@ -1,94 +1,64 @@
 import 'package:flutter/material.dart';
-import 'package:masterbird/core/theme/app_colors.dart';
-import 'package:masterbird/core/theme/app_text.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({super.key});
+  const HomeHeader({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 230,
+      height: 280,
       width: double.infinity,
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(30),
-          bottomRight: Radius.circular(30),
-        ),
         image: DecorationImage(
-          image: AssetImage("assets/images/home_header.jpg"),
+          // Memanggil gambar dari folder Assets sesuai strukturmu
+          image: AssetImage('Assets/images/home_header.jpg'), 
           fit: BoxFit.cover,
         ),
       ),
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(24, 20, 24, 24),
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(30),
-            bottomRight: Radius.circular(30),
-          ),
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.black.withValues(alpha: 0.20),
-              Colors.black.withValues(alpha: 0.45),
-            ],
-          ),
-        ),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                _circleButton(Icons.menu),
-
-                const Spacer(),
-
-                _circleButton(Icons.notifications_none),
-              ],
-            ),
-
-            const Spacer(),
-
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Selamat pagi, Putra 👋",
-                style: AppText.title.copyWith(
+      child: SafeArea(
+        bottom: false,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.menu, color: Colors.white),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.notifications_active, color: Colors.white),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+              const SizedBox(height: 24),
+              const Text(
+                'Selamat pagi, Putra 👋',
+                style: TextStyle(
+                  fontFamily: 'PlusJakartaSans',
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
               ),
-            ),
-
-            const SizedBox(height: 8),
-
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Semoga burung kesayanganmu\nsehat dan gacor setiap hari.",
-                style: AppText.body.copyWith(
+              const SizedBox(height: 8),
+              const Text(
+                'Semoga burung kesayanganmu\nsehat dan gacor setiap hari.',
+                style: TextStyle(
+                  fontFamily: 'PlusJakartaSans',
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
                   color: Colors.white70,
                   height: 1.5,
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
-  }
-
-  Widget _circleButton(IconData icon) {
-    return Container(
-      width: 42,
-      height: 42,
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(.20),
-        shape: BoxShape.circle,
-      ),
-      child: Icon(
-        icon,
-        color: Colors.white,
       ),
     );
   }
