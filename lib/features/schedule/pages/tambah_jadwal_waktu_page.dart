@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'tambah_jadwal_hari_page.dart';
 
 class TambahJadwalWaktuPage extends StatefulWidget {
   const TambahJadwalWaktuPage({Key? key}) : super(key: key);
@@ -259,8 +260,11 @@ class _TambahJadwalWaktuPageState extends State<TambahJadwalWaktuPage> {
             height: 56,
             child: ElevatedButton(
               onPressed: () {
-                // TODO: Lanjut ke step 4
-              },
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const TambahJadwalHariPage()),
+                  );
+                },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF386A3E),
                 shape: RoundedRectangleBorder(
